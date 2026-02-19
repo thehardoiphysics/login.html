@@ -1,73 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>π The Hardoi Physics</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>π The Hardoi Physics – Student Registration</title>
 
 <style>
 
-body{
-margin:0;
-font-family:Arial;
-background:linear-gradient(135deg,#141e30,#243b55);
-color:white;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#1d2671,#c33764);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.page{
-display:none;
-padding:20px;
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  animation: fadeIn 1s ease;
 }
 
-.center{
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.box{
-background:#ffffff20;
-padding:25px;
-border-radius:15px;
-width:90%;
-max-width:350px;
-text-align:center;
-backdrop-filter:blur(10px);
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
 }
 
-input{
-width:100%;
-padding:12px;
-margin:8px 0;
-border:none;
-border-radius:8px;
+button {
+  width: 100%;
+  padding: 12px;
+  background: #1d2671;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-button{
-width:100%;
-padding:14px;
-border:none;
-border-radius:10px;
-font-size:16px;
-background:linear-gradient(45deg,#ff7b00,#ff3c00);
-color:white;
-cursor:pointer;
+button:hover {
+  background: #c33764;
 }
 
-.card{
-background:#ffffff15;
-padding:20px;
-border-radius:15px;
-margin:15px 0;
-backdrop-filter:blur(10px);
+#success {
+  text-align: center;
+  color: green;
+  margin-top: 10px;
+  display: none;
 }
 
-h1,h2{text-align:center;color:#00ffd5;}
-
-footer{
-text-align:center;
-margin-top:20px;
-opacity:.8;
+@keyframes fadeIn {
+  from {opacity:0; transform: translateY(20px);}
+  to {opacity:1; transform: translateY(0);}
 }
 
 </style>
@@ -75,70 +74,35 @@ opacity:.8;
 
 <body>
 
-<!-- LOGIN PAGE -->
-
-<div id="login" class="page center">
-
-<div class="box">
-
-<h2>Login</h2>
-
-<input id="name" placeholder="Your Name">
-<input id="phone" placeholder="Phone Number">
-<input id="otp" placeholder="Enter OTP">
-
-<button onclick="sendOTP()">Send OTP</button>
-<button onclick="verify()">Enter Website</button>
-
-</div>
-
-</div>
-
-<!-- MAIN WEBSITE -->
-
-<div id="main" class="page">
-
-<h1>π The Hardoi Physics</h1>
-
 <div class="card">
-<h2>Buy Notes</h2>
-<p style="text-align:center;">Full year notes — ₹100</p>
-<button onclick="alert('Payment received ✅ Contact admin')">
-I Paid — Get Access
-</button>
-</div>
+  <h2>π The Hardoi Physics</h2>
 
-<div class="card" style="text-align:center;">
-<h2>Contact</h2>
-Email: mayankguptag493@gmail.com<br>
-Phone: +91-9305945708
-</div>
+  <input type="text" id="name" placeholder="Student Name" required>
+  <input type="text" id="class" placeholder="Class" required>
+  <input type="tel" id="phone" placeholder="Phone Number" required>
 
-<footer>
+  <button onclick="register()">Register</button>
 
-© 2026 π The Hardoi Physics
-
-</footer>
-
+  <div id="success">✅ Registration Successful!</div>
 </div>
 
 <script>
 
-function sendOTP(){
-alert("Demo OTP: 1234");
-}
+function register() {
+  let name = document.getElementById("name").value;
+  let studentClass = document.getElementById("class").value;
+  let phone = document.getElementById("phone").value;
 
-function verify(){
-if(otp.value!="1234"){
-alert("Wrong OTP!");
-return;
-}
+  if(name && studentClass && phone) {
+    document.getElementById("success").style.display = "block";
 
-login.style.display="none";
-main.style.display="block";
-}
+    // optional: console log (owner viewing demo)
+    console.log("Student:", name, studentClass, phone);
 
-login.style.display="flex";
+  } else {
+    alert("Please fill all fields!");
+  }
+}
 
 </script>
 
