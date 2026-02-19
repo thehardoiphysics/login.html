@@ -1,58 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>π The Hardoi Physics</title>
 
 <style>
 
-*{
+body{
 margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:Arial;
+background:linear-gradient(135deg,#141e30,#243b55);
+color:white;
 }
 
-body{
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-color:white;
+.page{
+display:none;
 padding:20px;
 }
 
-header{
-text-align:center;
-margin-bottom:30px;
+.center{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
 
-header h1{
-font-size:32px;
-color:#00ffd5;
-}
-
-header p{
-opacity:.9;
-margin-top:8px;
-}
-
-.card{
-background:#ffffff15;
-backdrop-filter:blur(10px);
+.box{
+background:#ffffff20;
 padding:25px;
-border-radius:16px;
-margin-bottom:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.4);
+border-radius:15px;
+width:90%;
+max-width:350px;
+text-align:center;
+backdrop-filter:blur(10px);
 }
 
-h2{
-color:#00ffd5;
-margin-bottom:10px;
-text-align:center;
-}
-
-.buy p{
-text-align:center;
-font-size:18px;
-margin-bottom:15px;
+input{
+width:100%;
+padding:12px;
+margin:8px 0;
+border:none;
+border-radius:8px;
 }
 
 button{
@@ -64,21 +52,21 @@ font-size:16px;
 background:linear-gradient(45deg,#ff7b00,#ff3c00);
 color:white;
 cursor:pointer;
-transition:.3s;
 }
 
-button:hover{
-transform:scale(1.05);
+.card{
+background:#ffffff15;
+padding:20px;
+border-radius:15px;
+margin:15px 0;
+backdrop-filter:blur(10px);
 }
 
-.contact{
-text-align:center;
-line-height:1.8;
-}
+h1,h2{text-align:center;color:#00ffd5;}
 
 footer{
 text-align:center;
-margin-top:25px;
+margin-top:20px;
 opacity:.8;
 }
 
@@ -87,38 +75,72 @@ opacity:.8;
 
 <body>
 
-<header>
-<h1>π The Hardoi Physics</h1>
-<p>Class 12 UP Board Physics Notes — Simple • Clear • Exam Focused</p>
-</header>
+<!-- LOGIN PAGE -->
 
-<div class="card buy">
+<div id="login" class="page center">
 
-<h2>Buy Notes</h2>
+<div class="box">
 
-<p>Get exclusive coaching notes for just <b>₹100/year</b></p>
+<h2>Login</h2>
 
-<button onclick="alert('Payment received! Contact admin for access.')">
-I Paid — Get Access
-</button>
+<input id="name" placeholder="Your Name">
+<input id="phone" placeholder="Phone Number">
+<input id="otp" placeholder="Enter OTP">
+
+<button onclick="sendOTP()">Send OTP</button>
+<button onclick="verify()">Enter Website</button>
 
 </div>
 
-<div class="card contact">
+</div>
 
-<h2>Contact Us</h2>
+<!-- MAIN WEBSITE -->
 
-Email: mayankguptag493@gmail.com  
-<br>
+<div id="main" class="page">
+
+<h1>π The Hardoi Physics</h1>
+
+<div class="card">
+<h2>Buy Notes</h2>
+<p style="text-align:center;">Full year notes — ₹100</p>
+<button onclick="alert('Payment received ✅ Contact admin')">
+I Paid — Get Access
+</button>
+</div>
+
+<div class="card" style="text-align:center;">
+<h2>Contact</h2>
+Email: mayankguptag493@gmail.com<br>
 Phone: +91-9305945708
-
 </div>
 
 <footer>
 
-© 2026 π The Hardoi Physics — All Rights Reserved
+© 2026 π The Hardoi Physics
 
 </footer>
+
+</div>
+
+<script>
+
+function sendOTP(){
+alert("Demo OTP: 1234");
+}
+
+function verify(){
+if(otp.value!="1234"){
+alert("Wrong OTP!");
+return;
+}
+
+login.style.display="none";
+main.style.display="block";
+}
+
+login.style.display="flex";
+
+</script>
 
 </body>
 </html>
